@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/a_szoveg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/a_felirat"
+        android:textSize="@dimen/felirat_meret"
+        app:layout_constraintEnd_toStartOf="@+id/a_ertek"
+        tools:layout_editor_absoluteY="142dp"
+        app:layout_constraintBottom_toTopOf="@id/b_szoveg"
+        />
+
+    <EditText
+        android:id="@+id/a_ertek"
+        android:layout_width="300px"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/felirat_meret"
+        app:layout_constraintBottom_toTopOf="@+id/felirat_szoveg"
+        app:layout_constraintEnd_toEndOf="@+id/felirat_szoveg"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/a_szoveg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/b_szoveg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/b_felirat"
+        android:textSize="@dimen/felirat_meret"
+
+        app:layout_constraintEnd_toStartOf="@+id/b_ertek"
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toEndOf="@+id/b_ertek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_szoveg" />
+
+    <EditText
+        android:id="@+id/b_ertek"
+        android:layout_width="300px"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/felirat_meret"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_szoveg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_ertek" />
+
+    <TextView
+        android:id="@+id/felirat_szoveg"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/eredmeny_felirat"
+        android:textSize="@dimen/felirat_meret"
+
+        app:layout_constraintBottom_toTopOf="@+id/gomb" />
+
+    <TextView
+        android:id="@+id/eredmeny"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/felirat_meret"
+
+        app:layout_constraintBottom_toTopOf="@+id/gomb"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/gomb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Számolás"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+package com.example.szamolas
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        var a_ertek:EditText=findViewById(R.id.a_ertek)
+        var b_ertek:EditText=findViewById(R.id.b_ertek)
+        var eredmenyszoveg:TextView=findViewById(R.id.eredmeny)
+        var gomb:Button=findViewById(R.id.gomb)
+        gomb.setOnClickListener{
+            var eredmeny=a_ertek.text.toString().toInt() + b_ertek.text.toString().toInt()
+            eredmenyszoveg.text=eredmeny.toString()
+        }
+
+
+
+
+
+
+    }
+}
+
+
+
+
